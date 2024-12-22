@@ -1,0 +1,395 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Special Visit Countdown</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <style>
+            /* Calendar Styles */
+            .calendar-section {
+                background: rgba(255, 255, 255, 0.9);
+                padding: 20px;
+                border-radius: 15px;
+                margin-bottom: 20px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            
+            .calendar-grid {
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                gap: 5px;
+                margin-top: 15px;
+            }
+            
+            .calendar-header {
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                gap: 5px;
+                margin-bottom: 10px;
+            }
+            
+            .calendar-header span {
+                text-align: center;
+                font-weight: bold;
+                color: #2196f3;
+            }
+            
+            .calendar-day {
+                text-align: center;
+                padding: 10px;
+                background: white;
+                border-radius: 8px;
+                position: relative;
+                transition: all 0.3s ease;
+            }
+            
+            .calendar-day:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            
+            .calendar-day.special {
+                background: #ffebee;
+                border: 2px solid #e74c3c;
+            }
+            
+            .calendar-day.special::after {
+                content: '❤️';
+                position: absolute;
+                top: -8px;
+                right: -8px;
+                font-size: 14px;
+                animation: heartBeat 1.5s infinite;
+            }
+            
+            /* Love Notes Feature */
+            .love-notes {
+                background: rgba(255, 255, 255, 0.9);
+                padding: 20px;
+                border-radius: 15px;
+                margin-bottom: 20px;
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .love-note {
+                font-size: 1.2em;
+                color: #e74c3c;
+                margin: 10px 0;
+                opacity: 0;
+                transform: translateY(20px);
+                animation: fadeInUp 0.5s forwards;
+            }
+            
+            @keyframes fadeInUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            /* Surprise Feature */
+            .surprise-box {
+                background: rgba(255, 255, 255, 0.9);
+                padding: 20px;
+                border-radius: 15px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+            
+            .surprise-button {
+                background: linear-gradient(45deg, #2196f3, #e74c3c);
+                color: white;
+                border: none;
+                padding: 15px 30px;
+                border-radius: 25px;
+                font-size: 1.1em;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                margin-bottom: 15px;
+            }
+            
+            .surprise-button:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            }
+            
+            .surprise-content {
+                display: none;
+                animation: fadeIn 1s forwards;
+            }
+            
+            .surprise-content.show {
+                display: block;
+            }
+            
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            
+            /* Mood Board */
+            .mood-board {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+                padding: 20px;
+                background: rgba(255, 255, 255, 0.9);
+                border-radius: 15px;
+                margin-bottom: 20px;
+            }
+            
+            .mood-item {
+                background: white;
+                padding: 15px;
+                border-radius: 10px;
+                text-align: center;
+                transition: all 0.3s ease;
+            }
+            
+            .mood-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 4px 15px rgba(33, 150, 243, 0.2);
+            }
+            
+            .mood-emoji {
+                font-size: 2em;
+                margin-bottom: 10px;
+            }
+            </style>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIu_601dSOHh-_78l-we4ZWNrxqo5wGbk&callback=initMap" async defer onerror="mapError()"></script>
+    </head>
+    <body>
+        <div class="calendar-section">
+            <h2>Days Until We Meet <i class="fas fa-calendar-heart"></i></h2>
+            <div class="calendar-header">
+                <span>Sun</span>
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+                <span>Sat</span>
+            </div>
+            <div class="calendar-grid" id="calendarGrid">
+                <!-- Calendar days will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <div class="love-notes">
+            <h2>Notes <i class="fas fa-heart"></i></h2>
+            <div id="loveNote" class="love-note"></div>
+        </div>
+        
+        <div class="surprise-box">
+            <button class="surprise-button" onclick="showSurprise()">
+                <i class="fas fa-gift"></i> Click for a Surprise
+            </button>
+            <div id="surpriseContent" class="surprise-content">
+                <div class="mood-board">
+                    <div class="mood-item">
+                        <div class="mood-emoji">⏳</div>
+                        <p>Waiting for you</p>
+                    </div>
+                    <div class="mood-item">
+                        <div class="mood-emoji">👧🏻</div>
+                        <p>My favorite Person</p>
+                    </div>
+                    <div class="mood-item">
+                        <div class="mood-emoji">👸🏻</div>
+                        <p>My Man Pasndida aurat</p>
+                    </div>
+                    <!-- <div class="mood-item">
+                        <div class="mood-emoji">🦋</div>
+                        <p>My butterfly</p>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="header">
+                <h1>Counting Down to Sakshi's Special Visit! ❤️</h1>
+                <div id="countdown" class="countdown">
+                    <div>
+                        <span id="days">00</span>
+                        <span class="label">Days</span>
+                    </div>
+                    <div>
+                        <span id="hours">00</span>
+                        <span class="label">Hours</span>
+                    </div>
+                    <div>
+                        <span id="minutes">00</span>
+                        <span class="label">Minutes</span>
+                    </div>
+                    <div>
+                        <span id="seconds">00</span>
+                        <span class="label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visit-details">
+                <h2>Visit Details <i class="fas fa-calendar-check"></i></h2>
+                <p>Arrival: December 28, 2023 - 9:00 AM</p>
+                <p>Duration: 3 Wonderful Days</p>
+                <p>Until: December 31, 2023</p>
+            </div>
+
+            <div class="destinations-section">
+                <h2>Our Adventure Destinations <i class="fas fa-mountain"></i></h2>
+                <div class="destinations-grid">
+                    <div class="destination-card">
+                        <h3>Mahabaleshwar <i class="fas fa-tree"></i></h3>
+                        <p>Beautiful hill station with stunning viewpoints and strawberry farms</p>
+                    </div>
+                    <div class="destination-card">
+                        <h3>Tamhini Ghat <i class="fas fa-cloud"></i></h3>
+                        <p>Scenic mountain pass with mesmerizing waterfalls and misty views</p>
+                    </div>
+                    <div class="destination-card">
+                        <h3>Pawna Lake <i class="fas fa-water"></i></h3>
+                        <p>Serene lakeside perfect for peaceful moments together</p>
+                    </div>
+                    <div class="destination-card">
+                        <h3>Bapdev Ghat <i class="fas fa-mountain"></i></h3>
+                        <p>Beautiful mountain pass with breathtaking valley views</p>
+                    </div>
+                    <div class="destination-card">
+                        <h3>FC Road <i class="fas fa-street-view"></i></h3>
+                        <p>Vibrant street with shopping, food, and entertainment</p>
+                    </div>
+                    <div class="destination-card">
+                        <h3>Khadakwasla Dam <i class="fas fa-water"></i></h3>
+                        <p>Scenic dam with beautiful lake views and peaceful atmosphere</p>
+                    </div>
+                    <div class="destination-card">
+                        <h3>Devkund Waterfall <i class="fas fa-water"></i></h3>
+                        <p>Hidden gem with stunning waterfall and natural beauty</p>
+                    </div>
+                    <div class="destination-card">
+                        <h3>Mulshi Lake <i class="fas fa-water"></i></h3>
+                        <p>Tranquil lake surrounded by lush greenery</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="restaurants-section">
+                <h2>Our Food Journey <i class="fas fa-utensils"></i></h2>
+                <div class="restaurants-grid">
+                    <div class="restaurant-card">
+                        <h3>Krishna Pure Veg <i class="fas fa-leaf"></i></h3>
+                        <p>Authentic vegetarian delights</p>
+                    </div>
+                    <div class="restaurant-card">
+                        <h3>Jyoti Restaurant <i class="fas fa-star"></i></h3>
+                        <p>Traditional flavors and cozy ambiance</p>
+                    </div>
+                    <div class="restaurant-card">
+                        <h3>Shiv Sagar Mulshi <i class="fas fa-hamburger"></i></h3>
+                        <p>Delicious meals with a view</p>
+                    </div>
+                    <div class="restaurant-card">
+                        <h3>Mangoan Hotel <i class="fas fa-coffee"></i></h3>
+                        <p>Local specialties and warm hospitality</p>
+                    </div>
+                    <div class="restaurant-card">
+                        <h3>Hotel Agra <i class="fas fa-utensils"></i></h3>
+                        <p>North Indian cuisine at its best</p>
+                    </div>
+                    <div class="restaurant-card">
+                        <h3>Arabian Bytes <i class="fas fa-moon"></i></h3>
+                        <p>Middle Eastern flavors and ambiance</p>
+                    </div>
+                    <div class="restaurant-card">
+                        <h3>Sweetzoo <i class="fas fa-candy-cane"></i></h3>
+                        <p>Delightful desserts and sweet treats</p>
+                    </div>
+                    <div class="restaurant-card">
+                        <h3>Irani Cafe <i class="fas fa-mug-hot"></i></h3>
+                        <p>Classic Irani chai and bun maska</p>
+                    </div>
+                    <div class="restaurant-card">
+                        <h3>Cafe Love Bite <i class="fas fa-heart"></i></h3>
+                        <p>Cozy cafe with romantic ambiance</p>
+                    </div>
+                </div>
+            </div>
+    <br>
+            <div class="map-section">
+                <h2>Meeting Point <i class="fas fa-map-marker-alt"></i></h2>
+                <div class="map-container">
+                    <div id="map"></div>
+                    <div class="map-overlay">
+                        <div class="heart-beat"></div>
+                        <p>Can't wait to see you here, Sakshi! ❤️</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wishlist-section">
+                <h2>Our Wishlist <i class="fas fa-heart"></i></h2>
+                <div class="wishlist-container">
+                    <div class="wish-item"><input type="checkbox" id="wish2"><label for="wish2">Cuddle 🤗</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish3"><label for="wish3">Take pictures together 📸</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish4"><label for="wish4">Back hug 🫂</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish5"><label for="wish5">Forehead kiss 😘</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish6"><label for="wish6">Eat together 🍽️</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish7"><label for="wish7">Watch Netflix together 🎬</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish8"><label for="wish8">Share one blanket 🛏️</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish9"><label for="wish9">Massage shoulders, back and legs 💆‍♀️</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish10"><label for="wish10">Play with your hair 💇‍♀️</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish11"><label for="wish11">Decorate your hair with flowers 💐</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish12"><label for="wish12">Skin care routine 🧴</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish13"><label for="wish13">Head massage 💆‍♀️</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish14"><label for="wish14">Dance together 💃</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish15"><label for="wish15">Neck kiss 😘</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish16"><label for="wish16">Deep eye contact 👀</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish17"><label for="wish17">Hide face in your neck 🤗</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish18"><label for="wish18">Oil head massage 💆‍♀️</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish19"><label for="wish19">Comb your hair 💇‍♀️</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish20"><label for="wish20">Listen to your songs 🎵</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish21"><label for="wish21">Watch you 👀</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish22"><label for="wish22">Sit on your lap 🪑</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish23"><label for="wish23">Help reduce overthinking 🧠</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish24"><label for="wish24">Help reduce stress 😌</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish25"><label for="wish25">Gain more trust 🤝</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish26"><label for="wish26">Hold hands 🤝</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish27"><label for="wish27">Walk while looking in your eyes 👀</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish28"><label for="wish28">Make you the best version of yourself ✨</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish29"><label for="wish29">Give infinite care and love ❤️</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish30"><label for="wish30">Listen to your talks ❤️</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish31"><label for="wish31">Wait for you to get ready 🕰️</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish32"><label for="wish32">Treat you the best possible way 🌟</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish33"><label for="wish33">Pick you up and walk 🚶‍♀️</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish34"><label for="wish34">Stand up for you when needed 💪</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish35"><label for="wish35">Have deep meaningful conversations 💭</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish36"><label for="wish36">Wrap you in my arms 🤗</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish37"><label for="wish37">Rest chin on your head while hugging 🫂</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish38"><label for="wish38">Random cheek kisses 😘</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish39"><label for="wish39">Run fingers through your hair while resting 💆‍♀️</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish40"><label for="wish40">Hold you close in cold weather 🥶</label></div>
+                    <div class="wish-item"><input type="checkbox" id="wish41"><label for="wish41">Read notes and shayari to you 📝</label></div>
+                </div>
+                <div class="add-wish">
+                    <input type="text" id="newWish" placeholder="Add new wish...">
+                    <button onclick="addWish()">Add</button>
+                </div>
+            </div>
+
+            
+        
+
+            <div class="message-section">
+                <h2>Special Message <i class="fas fa-envelope-heart"></i></h2>
+                <p class="message">Sakshi, counting every moment until I can see your beautiful smile! Together, we'll create memories that will last a lifetime! 💖</p>
+                <div class="hearts-animation"></div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+    </html>
