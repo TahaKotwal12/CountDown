@@ -3,243 +3,500 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Beloved Sakshi ❤️</title>
-    <link rel="stylesheet" href="style.css">
+    <title>For My Beloved Sakshi</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="landing">
-        <div class="hearts-container">
-            <div class="heart"></div>
-            <div class="heart"></div>
-            <div class="heart"></div>
-            <div class="heart"></div>
-            <div class="heart"></div>
-        </div>
-        <h1 class="main-title">To My Dearest Sakshi</h1>
-        <p class="subtitle">The Queen of My Heart, My Strength, My Everything</p>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
-            <span>Scroll Down to Feel My Love</span>
-        </div>
+    <div class="floating-hearts"></div>
+    <div class="theme-toggle" id="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </div>
+    <div class="container">
+        <header>
+            <div class="heart-animation">
+                <i class="fas fa-heart"></i>
+            </div>
+            <h1>To My Beloved Sakshi</h1>
+            <p class="subtitle">A digital love letter from your husband AKA Taha Kotwal</p>
+        </header>
+
+        <section class="countdown-section">
+            <h2>Until We Meet Again</h2>
+            <div id="countdown">
+                <div class="countdown-item">
+                    <span id="days">00</span>
+                    <p>Days</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">00</span>
+                    <p>Hours</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">00</span>
+                    <p>Minutes</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">00</span>
+                    <p>Seconds</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="message-section">
+            <h2>My Message to You</h2>
+            <div class="personal-message">
+                <p>Dearest Sakshi,</p>
+                <p>In the tapestry of my life, you are the most vibrant thread, weaving beauty and meaning into every moment. Your smile brightens my darkest days, and your strength inspires me to be better.</p>
+                <p>I know things have been stressful lately, but remember that you are capable of overcoming any challenge. Your resilience and determination are just two of the countless reasons why I fall in love with you more each day.</p>
+                <p>This little corner of the internet is dedicated to you - a small reminder of my endless love and admiration for the amazing woman you are.</p>
+                <p>Forever yours,</p>
+                <p>Taha</p>
+            </div>
+        </section>
+
+        <section class="quotes-section">
+            <h2>Words of Love</h2>
+            <div class="quote-container">
+                <div class="quote" id="quote-display">
+                    <p>"In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine."</p>
+                    <span class="author">- Maya Angelou</span>
+                </div>
+                <button id="new-quote-btn">New Quote <i class="fas fa-sync-alt"></i></button>
+            </div>
+        </section>
+
+        <section class="reasons-section">
+            <h2>Reasons Why I Love You</h2>
+            <div class="reasons-container">
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span class="reason-number">1</span>
+                            <h3>Your Smile</h3>
+                            <p>Click to read more</p>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>Your smile brightens even my darkest days. It's the first thing I fell in love with and it still takes my breath away every time.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span class="reason-number">2</span>
+                            <h3>Your Strength</h3>
+                            <p>Click to read more</p>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>The way you handle challenges with grace and determination inspires me every day. Your resilience is truly remarkable.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span class="reason-number">3</span>
+                            <h3>Your Kindness</h3>
+                            <p>Click to read more</p>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>Your compassion for others shows the beauty of your heart. The way you care for people around you makes me proud to be your husband.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span class="reason-number">4</span>
+                            <h3>Your Intelligence</h3>
+                            <p>Click to read more</p>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>Your brilliant mind and thoughtful insights never cease to amaze me. I love our deep conversations and how you see the world.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span class="reason-number">5</span>
+                            <h3>Your Laughter</h3>
+                            <p>Click to read more</p>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>The sound of your laughter is my favorite melody. The way your eyes light up when you laugh is pure magic.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span class="reason-number">6</span>
+                            <h3>Your Support</h3>
+                            <p>Click to read more</p>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>You believe in me even when I don't believe in myself. Your unwavering support gives me the courage to chase my dreams.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <button id="add-reason-btn" class="add-reason-btn">
+                <i class="fas fa-plus"></i> Add Your Own Reason
+            </button> -->
+        </section>
+
+        <section class="music-section">
+            <h2>Our Playlist</h2>
+            <p class="music-intro">Some melodies that remind me of our love story...</p>
+            <div class="music-player">
+                <div class="current-song">
+                    <div class="song-cover">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="song-info">
+                        <h3 id="song-title">Perfect</h3>
+                        <p id="song-artist">Ed Sheeran</p>
+                    </div>
+                </div>
+                <div class="player-controls">
+                    <button id="prev-song"><i class="fas fa-step-backward"></i></button>
+                    <button id="play-pause"><i class="fas fa-play"></i></button>
+                    <button id="next-song"><i class="fas fa-step-forward"></i></button>
+                </div>
+                <div class="playlist">
+                    <div class="playlist-item active" data-title="Perfect" data-artist="Ed Sheeran">
+                        <span class="playlist-number">1</span>
+                        <div class="playlist-info">
+                            <h4>Perfect</h4>
+                            <p>Ed Sheeran</p>
+                        </div>
+                        <span class="playlist-duration">4:23</span>
+                    </div>
+                    <div class="playlist-item" data-title="All of Me" data-artist="John Legend">
+                        <span class="playlist-number">2</span>
+                        <div class="playlist-info">
+                            <h4>All of Me</h4>
+                            <p>John Legend</p>
+                        </div>
+                        <span class="playlist-duration">4:29</span>
+                    </div>
+                    <div class="playlist-item" data-title="A Thousand Years" data-artist="Christina Perri">
+                        <span class="playlist-number">3</span>
+                        <div class="playlist-info">
+                            <h4>A Thousand Years</h4>
+                            <p>Christina Perri</p>
+                        </div>
+                        <span class="playlist-duration">4:45</span>
+                    </div>
+                    <div class="playlist-item" data-title="Can't Help Falling in Love" data-artist="Elvis Presley">
+                        <span class="playlist-number">4</span>
+                        <div class="playlist-info">
+                            <h4>Can't Help Falling in Love</h4>
+                            <p>Elvis Presley</p>
+                        </div>
+                        <span class="playlist-duration">3:02</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <h2>A small gallery</h2>
+            
+            <div class="gallery">
+                <div class="gallery-placeholder">
+                    <i class="fas fa-images"></i>
+                    <p>Your photos will appear here</p>
+                </div>
+                <!-- Photo placeholders - replace src with actual images -->
+                <div class="photo-container">
+                    <div class="photo">
+                        <img src="assets/DSC_0219.png" alt="Placeholder Image">
+                        <div class="photo-overlay">
+                            <span class="photo-date">Your Smile</span>
+                            <button class="photo-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                    <div class="photo">
+                        <img src="assets/DSC_0321.png" alt="Placeholder Image">
+                        <div class="photo-overlay">
+                            <span class="photo-date">Your hairs</span>
+                            <button class="photo-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                    <div class="photo">
+                        <img src="assets/BHUAD.jpg" alt="Placeholder Image">
+                        <div class="photo-overlay">
+                            <span class="photo-date">BHUKAD</span>
+                            <button class="photo-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                    <div class="photo">
+                        <img src="assets/LASTMEET.jpg" alt="Placeholder Image">
+                        <div class="photo-overlay">
+                            <span class="photo-date">Our Last meet before vacation</span>
+                            <button class="photo-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                    <div class="photo">
+                        <img src="assets/TOGETHER.jpg" alt="Placeholder Image">
+                        <div class="photo-overlay">
+                            <span class="photo-date">Together</span>
+                            <button class="photo-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                    <div class="photo">
+                        <img src="assets/MADNESS.jpg" alt="Placeholder Image">
+                        <div class="photo-overlay">
+                            <span class="photo-date">MADNESS</span>
+                            <button class="photo-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="photo">
+                        <img src="assets/SURLIKHIYOWALI.jpg" alt="Placeholder Image">
+                        <div class="photo-overlay">
+                            <span class="photo-date">My Bholi</span>
+                            <button class="photo-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="photo">
+                        <img src="assets/SUNDAR.jpg" alt="Placeholder Image">
+                        <div class="photo-overlay">
+                            <span class="photo-date">My Wife <b>Sakshi Jaiswal</b></span>
+                            <button class="photo-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="lightbox" id="lightbox">
+                <span class="lightbox-close">&times;</span>
+                <img class="lightbox-content" id="lightbox-img">
+                <div class="lightbox-caption" id="lightbox-caption"></div>
+            </div>
+        </section>
+
+        <section class="timeline-section">
+            <h2>Our Future Together</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Travel the World</h3>
+                        <p>Exploring new places and creating memories together. From the beaches of Bali to the streets of Paris, I can't wait to see the world with you.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Build Your Dream Home</h3>
+                        <p>A place filled with love, laughter, and all the little things that make a house Your home.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Grow Old Together</h3>
+                        <p>Holding hands on the porch swing, reminiscing about our adventures and the beautiful life we've built in four years</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Create Traditions</h3>
+                        <p>Building our own special rituals and celebrations that will become the fabric of our Story.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="virtual-gifts-section">
+            <h2>Virtual Gifts For You</h2>
+            <div class="gifts-container">
+                <div class="gift-item">
+                    <div class="gift-box">
+                        <div class="gift-lid"></div>
+                        <div class="gift-box-inner">
+                            <i class="fas fa-spa"></i>
+                            <p>A day of relaxation</p>
+                        </div>
+                    </div>
+                    <p class="gift-label">Click to open</p>
+                </div>
+                <div class="gift-item">
+                    <div class="gift-box">
+                        <div class="gift-lid"></div>
+                        <div class="gift-box-inner">
+                            <i class="fas fa-utensils"></i>
+                            <p>Dinner at your favorite restaurant</p>
+                        </div>
+                    </div>
+                    <p class="gift-label">Click to open</p>
+                </div>
+                <div class="gift-item">
+                    <div class="gift-box">
+                        <div class="gift-lid"></div>
+                        <div class="gift-box-inner">
+                            <i class="fas fa-book"></i>
+                            <p>A quiet evening with your favorite book</p>
+                        </div>
+                    </div>
+                    <p class="gift-label">Click to open</p>
+                </div>
+                <div class="gift-item">
+                    <div class="gift-box">
+                        <div class="gift-lid"></div>
+                        <div class="gift-box-inner">
+                            <i class="fas fa-star"></i>
+                            <p>A wish granted</p>
+                        </div>
+                    </div>
+                    <p class="gift-label">Click to open</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="beating-heart-section">
+            <h2>My Heart Beats Only For You</h2>
+            <div class="heart-container">
+                <div class="scene">
+                    <div class="heart3d" id="heart3d">
+                        <div class="heart-half heart-half--left"></div>
+                        <div class="heart-half heart-half--right"></div>
+                        <div class="heart-center" id="heart-center">
+                            <div class="heart-message">
+                                <p>Every beat of my heart<br>belongs to you,<br>my Sakshi</p>
+                                <p class="heart-signature">- Taha</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="heart-instruction">Click the heart to see my message</p>
+            </div>
+        </section>
+
+        <section class="encouragement-section">
+            <h2>Daily Encouragement</h2>
+            <div class="encouragement-card">
+                <p id="encouragement-message">"You are stronger than you know, braver than you believe, and loved more than you can imagine."</p>
+                <button id="new-encouragement-btn">New Message <i class="fas fa-heart"></i></button>
+            </div>
+        </section>
+
+        <section class="interactive-letter-section">
+            <h2>From My Heart to Yours</h2>
+            <div class="letter-container">
+                <div class="letter-paper">
+                    <div class="letter-content" id="letter-content">
+                        <p class="letter-salutation">Hii Love,</p>
+                        <p>As I write this letter, I'm thinking about all the moments that have led us here. Every laugh, every tear, every challenge we've faced together has only strengthened my love for you.</p>
+                        <p class="letter-highlight">Pata nahi aisa koi word bhi banaya hua nahi hai ki jo mai tumhai bata saku jiskai zariyai tumhai pata chalai ki tum kitni achi ho kitni khubsurat ho kitni yari ho.</p>
+                        <p>Mai har din upar walai ka shuqriya karta hu ki unhonai tumhai mairai life mai bhaija.</p>
+                        <p>I want you to know that in this journey called life, having you by my side makes everything worthwhile. Your love gives me strength, your smile gives me joy, and your presence gives me peace.</p>
+                        <p class="letter-highlight">I don't know baby hum 4 years kai bad kaha rahaingai kaisai rahaingai but please can you please be my wife not only in words but in real meaning, I love you a lot my queen.</p>
+                        <p>Aur ha, when things get tough, remember that we're a team. We'll face whatever comes our way together, hand in hand, heart to heart.</p>
+                        <p class="letter-promise">Mai tum sai yai wada karta hu ki I'll be your rock when you need strength, your shoulder when you need comfort, and your biggest cheerleader when you need encouragement.</p>
+                        <p class="letter-highlight">I can't say much abhi app train mai ho jaldi sai aa jau ek pagal app ka wait kar raha hai 15 dino sai jaldi aauuu my Khushi mu muskan my angel my wife my mehboba my girl my sweet my heart and my world.</p>
+                        <p>Thank you for being my wife, my best friend, and my soulmate.</p>
+                        <p class="letter-closing">Forever yours,</p>
+                        <p class="letter-signature">Taha</p>
+                        <div class="letter-hearts">
+                            <i class="fas fa-heart"></i>
+                            <i class="fas fa-heart"></i>
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="letter-controls">
+                    <button id="letter-read-btn">Read Aloud <i class="fas fa-volume-up"></i></button>
+                    <button id="letter-pause-btn" disabled>Pause <i class="fas fa-pause"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="love-notes-section">
+            <h2>Notes</h2>
+            <div class="love-notes-container">
+                <!-- <div class="love-note-form">
+                    <textarea id="love-note-input" placeholder="Write a sweet note for Sakshi..."></textarea>
+                    <button id="add-note-btn">Add Note <i class="fas fa-paper-plane"></i></button>
+                </div> -->
+                <div class="love-notes-wall" id="love-notes-wall">
+                    <div class="love-note">
+                        <p>You make every day special just by being you.</p>
+                        <!-- <span class="love-note-date">March 14, 2025</span> -->
+                    </div>
+                    <div class="love-note">
+                        <p>Your smile is my favorite sight in the whole world.</p>
+                        <!-- <span class="love-note-date">March 13, 2025</span> -->
+                    </div>
+                    <div class="love-note">
+                        <p>I'm so proud of everything you accomplish.</p>
+                        <!-- <span class="love-note-date">March 12, 2025</span> -->
+                    </div>
+                    <div class="love-note">
+                        <p>My morning starts with you and my night ends with you.</p>
+                        <!-- <span class="love-note-date">March 12, 2025</span> -->
+                    </div>
+                    <div class="love-note">
+                        <p>This 15 days was so much bad for me without you</p>
+                        <!-- <span class="love-note-date">March 12, 2025</span> -->
+                    </div>
+                    <div class="love-note">
+                        <p>You are the perfect girl.</p>
+                        <!-- <span class="love-note-date">March 12, 2025</span> -->
+                    </div>
+                    <div class="love-note">
+                        <p>one in thousand nah!!!<br>one in world</p>
+                        <!-- <span class="love-note-date">March 12, 2025</span> -->
+                    </div>
+                    <div class="love-note">
+                        <p>Dear Sakshi Jaiswal Come fast now.</p>
+                        <!-- <span class="love-note-date">March 12, 2025</span> -->
+                    </div>
+                    <div class="love-note">
+                        <p>Always keep smiling my love</p>
+                        <!-- <span class="love-note-date">March 12, 2025</span> -->
+                    </div>
+                    <div class="love-note">
+                        <p>i am with you always by your side your pillar</p>
+                        <!-- <span class="love-note-date">March 12, 2025</span> -->
+                    </div>
+                    <div class="love-note">
+                        <p>I LOVE YOU</p>
+                        <!-- <span class="love-note-date">March 12, 2025</span> -->
+                    </div>
+                    <div class="love-note">
+                        <p>I Miss You</p>
+                        <!-- <span class="love-note-date">March 12, 2025</span> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-message">
+                    <p>Made  by your husband <i class="fas fa-heart"></i>  Taha Kotwal</p>
+                    <!-- <p class="date-created">March 2025</p> -->
+                </div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link" id="surprise-btn"><i class="fas fa-gift"></i> Surprise</a>
+                    <!-- <a href="#" class="footer-link" id="share-btn"><i class="fas fa-share-alt"></i> Share</a>
+                    <a href="#" class="footer-link" id="feedback-btn"><i class="fas fa-comment"></i> Feedback</a> -->
+                </div>
+            </div>
+        </footer>
     </div>
 
-    <section class="love-quotes">
-        <div class="quote-card">
-            <i class="fas fa-heart quote-icon"></i>
-            <p>"Every time I see you, it feels like I'm seeing you for the first time. Your smile, your eyes, your beautiful spirit - everything about you makes me fall in love again and again."</p>
-        </div>
-        <div class="quote-card">
-            <i class="fas fa-star quote-icon"></i>
-            <p>"From Byculla to Malad, through every challenge, you've shown incredible strength. You're not just strong, you're extraordinary."</p>
-        </div>
-        <div class="quote-card">
-            <i class="fas fa-infinity quote-icon"></i>
-            <p>"4 years of beautiful memories, and a lifetime of love ahead. You're my today, my tomorrow, my forever."</p>
-        </div>
-    </section>
-
-    <section class="gallery">
-        <h2>Moments That Make Me Smile</h2>
-        <div class="gallery-container">
-            <div class="memory-card">
-                <img src="images/20241212_172947.jpg" alt="Memory 1">
-                <div class="memory-content">
-                    <!-- <h3>Beautiful Moments</h3>
-                    <p>Every moment with you is magical ❤️</p> -->
-                </div>
-            </div>
-            <div class="memory-card">
-                <img src="images/20241212_144042.jpg" alt="Memory 2">
-                <div class="memory-content">
-                    <!-- <h3>Our Journey</h3>
-                    <p>Growing stronger together</p> -->
-                </div>
-            </div>
-            <div class="memory-card">
-                <img src="images/20241211_121745.jpg" alt="Memory 3">
-                <div class="memory-content">
-                    <!-- <h3>Special Times</h3>
-                    <p>Making memories that last forever</p> -->
-                </div>
-            </div>
-            <div class="memory-card">
-                <img src="images/image1.jpg" alt="Memory 4">
-                <div class="memory-content">
-                    <!-- <h3>Pure Love</h3>
-                    <p>Your smile lights up my world</p> -->
-                </div>
-            </div>
-            
-        </div>
-    </section>
-
-    <section class="message">
-        <h2>My Love Letter to You</h2>
-        <div class="letter-content">
-            <div class="letter-card">
-                <i class="fas fa-heart letter-icon"></i>
-                <p>My baby, my strong warrior, my everything... From the moment we met in the office, every day has been a blessing. Your smile, your eyes, the way you shake your head - everything about you makes me fall in love again and again.</p>
-            </div>
-            <div class="letter-card">
-                <i class="fas fa-star letter-icon"></i>
-                <p>Your journey from Byculla to Malad, braving the heat, managing time, handling everything with such grace - you're incredible. Your strength in facing life's challenges, from childhood to today, shows how amazing you are.</p>
-            </div>
-            <div class="letter-card">
-                <i class="fas fa-infinity letter-icon"></i>
-                <p>I know you overthink, my sona, but remember - I'm here for you, always. You hold the highest place in my heart, right alongside mom and dad. Together, we can conquer anything.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="daily-journey">
-        <h2>Your Daily Battle - My Warrior Queen</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="time">7:00 AM</div>
-                <div class="content">
-                    <i class="fas fa-sun"></i>
-                    <h3>Dawn of Strength</h3>
-                    <p>Starting your day with determination, ready to face any challenge</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="time">Morning</div>
-                <div class="content">
-                    <i class="fas fa-train"></i>
-                    <h3>The Journey</h3>
-                    <p>Braving the crowds in trains, never letting anything stop you</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="time">Daytime</div>
-                <div class="content">
-                    <i class="fas fa-building"></i>
-                    <h3>Office Warriors</h3>
-                    <p>Working with dedication, showing your incredible spirit</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="time">Evening</div>
-                <div class="content">
-                    <i class="fas fa-home"></i>
-                    <h3>Home Sweet Home</h3>
-                    <p>Managing everything with grace, your strength never fading</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="music-section">
-        <h2>Songs That Remind Me of You</h2>
-        <div class="music-cards">
-            <div class="music-card">
-                <i class="fas fa-music"></i>
-                <h3>Tum Hi Ho</h3>
-                <p>"You are my world, my everything"</p>
-                <div class="music-note-animation">
-                    <i class="fas fa-music note"></i>
-                </div>
-            </div>
-            <div class="music-card">
-                <i class="fas fa-music"></i>
-                <h3>Raabta</h3>
-                <p>"Our connection is divine and eternal"</p>
-                <div class="music-note-animation">
-                    <i class="fas fa-music note"></i>
-                </div>
-            </div>
-            <div class="music-card">
-                <i class="fas fa-music"></i>
-                <h3>Hawayein</h3>
-                <p>"Like a breath of fresh air in my life"</p>
-                <div class="music-note-animation">
-                    <i class="fas fa-music note"></i>
-                </div>
-            </div>
-            <div class="music-card">
-                <i class="fas fa-music"></i>
-                <h3>Tere Sang Yaara</h3>
-                <p>"Every moment with you is precious"</p>
-                <div class="music-note-animation">
-                    <i class="fas fa-music note"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="dreams">
-        <h2>Our Dreams Together</h2>
-        <div class="dreams-container">
-            <div class="dream-card">
-                <i class="fas fa-heart"></i>
-                <h3>Forever Love</h3>
-                <p>Building our future together, one day at a time</p>
-            </div>
-            <div class="dream-card">
-                <i class="fas fa-star"></i>
-                <h3>Your Success</h3>
-                <p>Watching you achieve everything you've ever dreamed of</p>
-            </div>
-            <div class="dream-card">
-                <i class="fas fa-home"></i>
-                <h3>Your Home</h3>
-                <p>Creating Your perfect space filled with love and joy</p>
-            </div>
-            <div class="dream-card">
-                <i class="fas fa-infinity"></i>
-                <h3>Endless Love</h3>
-                <p>Growing stronger together with each passing day</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="strength-message">
-        <div class="strength-content">
-            <h2>To My Warrior Princess</h2>
-            <div class="strength-card">
-                <i class="fas fa-crown card-icon"></i>
-                <p>You are the strongest person I know. From Byculla to Malad, through every challenge, you've shown incredible resilience. Your parents are so proud of you, and so am I.</p>
-            </div>
-            <div class="strength-card">
-                <i class="fas fa-heart card-icon"></i>
-                <p>I know you overthink, my sona, but remember - I'm here for you, always. You hold the highest place in my heart, right alongside mom and dad.</p>
-            </div>
-            <div class="strength-card">
-                <i class="fas fa-star card-icon"></i>
-                <p>Together, we can conquer anything. Your past made you stronger, and your future will make you happier. I promise to be there every step of the way. ❤️</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="nicknames">
-        <h2>All The Ways I Love You</h2>
-        <div class="nickname-cloud">
-            <span class="nickname">Bubly </span>
-            <span class="nickname">Genge</span>
-            <span class="nickname">Munya</span>
-            <span class="nickname">Nunu</span>
-            <span class="nickname">Sona</span>
-            <span class="nickname">My Queen</span>
-            <span class="nickname">My Strength</span>
-            <span class="nickname">My Everything</span>
-            <span class="nickname">My Heart</span>
-            <span class="nickname">My World</span>
-            <span class="nickname">My Love</span>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-content">
-            <h3>Forever Yours</h3>
-            <p>Every second, every minute, every hour, every day</p>
-            <div class="footer-hearts">
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-heart"></i>
-            </div>
-            <p class="signature">- Your Love, Forever and Always</p>
-        </div>
-    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
